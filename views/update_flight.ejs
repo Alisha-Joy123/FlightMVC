@@ -1,0 +1,74 @@
+
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+  <!-- Main Site -->
+  <main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/"><i class="fas fa-angle-double-left"></i> All Flights</a>
+           </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">Update Flight</h2>
+            <span class="text-light">Use the below form to Update a Flight</span>
+        </div>
+
+        <!-- add flight form -->
+         <!-- form handling -->
+ <form method="POST" id="update_flight">
+    <div class="new_user">
+        <div class="form-group">
+            <label for="flightno" class="text-light">Flight No.</label>
+            <input type="hidden" name="id" value="<%= flight._id %>">
+            <input type="text" name="flightNo" value="<%= flight.flightNo %>" placeholder="flight no">
+        </div>
+        <div class="form-group">
+            <label for="airlines" class="text-light">Airlines</label>
+            <input type="hidden" name="id" value="<%= flight._id %>">
+            <input type="text" name="airlines" value="<%= flight.airlines %>" placeholder="airlines">
+        </div>
+        <div class="form-group">
+            <label for="source" class="text-light">Source</label>
+            <input type="text" name="source" value="<%= flight.source%>" placeholder="source city">
+        </div>
+        <div class="form-group">
+            <label for="destination" class="text-light">Destination</label>
+            <input type="text" name="destination" value="<%= flight.destination %>" placeholder="destination city">
+        </div>
+        <div class="form-group">
+            <label for="duration" class="text-light">Duration (H:M) </label>
+            <input type="text" name="duration" value="<%= flight.duration %>" placeholder="Duration Hours: Min">
+        </div>
+        <div class="form-group">
+            <label for="departureDate" class="text-light">Departure Date</label>
+            <input type="text" name="departureDate" value="<%= flight.departureDate %>" placeholder="departure date">
+        </div>
+        <div class="form-group">
+            <label for="gender" class="text-light">Status</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-4" name="status" value="Active" <%= flight.status == 'Active' ? 'checked' : '' %> >
+                <label for="radio-4" class="radio-label">Active</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-5" name="status" value="Inactive" <%= flight.status == 'Inactive' ? 'checked' : '' %> >
+                <label for="radio-5" class="radio-label">Inactive</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update">Save</button>
+        </div>
+
+    </div>
+</form>
+       
+    </div>
+</main>
+<!-- /Main Site -->
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->

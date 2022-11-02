@@ -1,0 +1,27 @@
+<% console.log(flights.length)%>
+<% if (flights.length==undefined){ %>
+    <tr> 
+        <td>no data available</td>
+    </tr>
+<% }else{ %>
+
+<% for(var i = 0; i < flights.length; i++) { %>
+<tr>
+    <td><%= i + 1 %></td>
+    <td><%= flights[i].flightNo %></td>
+    <td><%= flights[i].airlines %></td>
+    <td><%= flights[i].source %></td>
+    <td><%= flights[i].destination %></td>
+    <td><%= flights[i].duration %></td>
+    <td><%= flights[i].departureDate %></td>
+    <td><%= flights[i].status %></td>
+    <td>
+        <a href="/update-flight?id=<%= flights[i]._id%>" class="btn border-shadow update">
+            <span class=""><i class="fas fa-pencil-alt"></i></span>
+        </a>
+        <a class="btn border-shadow delete" data-id=<%= flights[i]._id%> >
+            <span class=""><i class="fas fa-times"></i></span>
+        </a>
+    </td>
+</tr>
+<% }} %>
